@@ -24,7 +24,7 @@
         h3 { font-size: 1.1rem; margin-top: 18px; margin-bottom: 8px; }
         p, li { color: #424245; margin-bottom: 12px; }
         ul { margin-left: 20px; margin-bottom: 16px; }
-        .last-updated { color: #86868b; margin-bottom: 24px; }
+        .last-updated { color: #424245; margin-bottom: 24px; }
         .highlight {
             background: #e8f5e9; padding: 16px; border-radius: 12px; margin: 16px 0;
         }
@@ -36,7 +36,7 @@
 <div class="container">
 <!-- COUNSEL REVIEW: Pricing v2 / data-rights language drafted by engineering (Oct 2026); privacy permissions rewrite (Nov 2026). Have counsel review before release. -->
     <h1>Privacy Policy</h1>
-    <p class="last-updated">Last updated: November 14, 2026</p>
+    <p class="last-updated">Last updated: November 26, 2026</p>
 
     <p>MoundOS (“we,” “our,” or “us”) explains how we collect, use, store, and delete information when you use the MoundOS iOS app (including optional Apple Watch features). This policy applies to the shipping product surface described below.</p>
 
@@ -47,7 +47,7 @@
             <li>We do not sell your personal data</li>
             <li>We do not track you across apps or websites for advertising (no ATT / IDFA advertising use)</li>
             <li>You own your data. You can export or delete it in the app</li>
-            <li>Optional iCloud sync (Player) uses <strong>your own private iCloud database</strong>; we cannot read it</li>
+            <li>Optional iCloud sync uses <strong>your own private iCloud database</strong>; we cannot read it</li>
             <li>Your athlete model is trained on your device</li>
             <li>MoundOS does not use the microphone</li>
             <li>Community / social messaging is <strong>not enabled</strong> in this release</li>
@@ -58,7 +58,7 @@
 
     <h3>1.1 Information you create in the app</h3>
     <ul>
-        <li><strong>Session and pitch data:</strong> estimated velocity, spin, break, pitch type labels, notes, timestamps</li>
+        <li><strong>Session and pitch data:</strong> estimated velocity and break, pitch type labels, notes, timestamps, and spin only when you import a radar file (labeled “From your radar”)</li>
         <li><strong>Videos and clips:</strong> recordings you capture (stored in the app on your iPhone, in Documents/PitchClips, encrypted by iOS until you first unlock the phone after it starts)</li>
         <li><strong>Settings:</strong> preferences such as capture mode, mound distance, handedness, display options</li>
         <li><strong>Performance assessments / recovery logs:</strong> values you enter for training or sleep-related features</li>
@@ -83,8 +83,8 @@
         <li><strong>iPhone reads:</strong> sleep, resting heart rate, heart rate variability, breathing rate, blood oxygen, and active energy. Readiness compares these with your own last 28 days and can only suggest a lighter throwing day</li>
         <li><strong>iPhone reads, height:</strong> only when you tap Fill in from Apple Health while setting up your profile. MoundOS asks for height on its own at that moment, reads your most recent height once, and shows it for you to confirm before saving it to your profile. It is not read again in the background</li>
         <li><strong>iPhone writes:</strong> nothing. MoundOS on iPhone does not save anything to Apple Health</li>
-        <li><strong>Apple Watch reads:</strong> heart rate and active energy during a pitching session you start, heart rate variability and resting heart rate when you open the recovery page, and sleep when you open the sleep page. The Watch asks for access when you start a session or open those pages, not when the app opens</li>
-        <li><strong>Apple Watch writes:</strong> your pitching session as a baseball workout, with its heart rate and active energy</li>
+        <li><strong>Apple Watch reads:</strong> heart rate while a pitching session is open, heart rate variability and resting heart rate when you open the recovery page, and sleep when you open the sleep page. The Watch does not read active energy. It asks for access when you start a session or open those pages, not when the app opens. A pitching session is not saved to Apple Health</li>
+        <li>A pitching session is not saved as an Apple Health workout. Apple Health is read for readiness (sleep, resting heart rate, heart rate variability).</li>
     </ul>
     <p>Readiness values read from Apple Health are kept in memory; they are not saved by MoundOS. While Readiness is on, Apple Health can wake MoundOS in the background when new sleep, resting heart rate, or heart rate variability arrives, so today’s readiness stays current without opening the app. Today’s readiness level and score are sent to MoundOS on your paired Apple Watch, and appear in a notification only if you turn on the morning readiness reminder. A session’s heart rate summary (from your Apple Watch or a Bluetooth sensor) is saved with that session on your iPhone. Health data is removed before iCloud sync, team sharing, and default exports. We do not use it for advertising, data mining, or sale, and we do not send it to a server.</p>
 
@@ -123,8 +123,8 @@
         <li>Contacts harvesting for marketing databases</li>
     </ul>
 
-    <h3>1.9 iCloud sync (optional, Player)</h3>
-    <p>If you turn on iCloud sync, your sessions, lift log, templates, profile, body-composition values, and model state are stored in the <strong>private CloudKit database of your own iCloud account</strong> (container iCloud.com.cis-consulting.MoundOS). Apple hosts this data under its terms; we have no access to it. Pitch video clips and Health data are not synced. Sync is off when you’re signed out of iCloud. You can turn it off in Settings. Deleting your account in the app deletes the synced data; you can also remove it in iOS Settings → [Your Name] → iCloud → Manage Storage → MoundOS.</p>
+    <h3>1.9 iCloud sync (optional)</h3>
+    <p>If you turn on iCloud sync, your sessions, lift log, templates, profile, and model state are stored in the <strong>private CloudKit database of your own iCloud account</strong> (container iCloud.com.cis-consulting.MoundOS). Apple hosts this data under its terms; we have no access to it. Pitch video clips, Health data, and body-composition values are not synced. Sync is off when you’re signed out of iCloud. You can turn it off in Settings. Deleting your account in the app deletes the synced data; you can also remove it in iOS Settings → [Your Name] → iCloud → Manage Storage → MoundOS.</p>
 
     <h3>1.10 Team (staged, TestFlight only)</h3>
     <p>Team is being tested and is available only in TestFlight builds; it is off in the App Store release. When it is on, a coach creates a team and shares an invite code. An athlete who joins shares only a small summary with that coach: the display name they choose (initials or a nickname are fine), graduation year, recent velocity estimates, strike percentage, and pitch and session counts. Video, contact details, Health data, and location are never shared. Athletes under 18 need a parent or guardian’s consent before joining. The invite and join records are kept in the app’s iCloud public database, readable only with the invite code; the summary is shared from the athlete’s private iCloud to the coach only. Either side can stop sharing at any time, and deleting your account leaves your team (or deletes a team you run).</p>
@@ -174,6 +174,8 @@
 
     <h2>8. Changes</h2>
     <p>We may update this policy. Material changes will be reflected by updating the “Last updated” date and the in-app document.</p>
+
+    <p>iPhone, App Store, Apple Watch, Sign in with Apple, iCloud, Apple Health, and WeatherKit are trademarks of Apple Inc.</p>
 
     <h2>9. Contact</h2>
     <div class="contact">
